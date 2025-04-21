@@ -8,6 +8,10 @@ st.write("Enter a movie summary and get a predicted IMDb rating.")
 # Text input from user
 movie_summary = st.text_area("Movie Summary", height=200)
 
+
+#don't write API in the code -> this is a public  area
+openai.api_key = st.secrets["openai"]["api_key"]
+
 if movie_summary:
     response = openai.chat.completions.create(
         model="gpt-4o-mini", 
